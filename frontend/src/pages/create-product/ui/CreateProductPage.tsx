@@ -8,6 +8,11 @@ import { Button } from '@/shared/ui/Button/Button';
 import { apiClient } from '@/shared/api/client';
 import type { CreateProductData } from '@/entities/product/types';
 
+interface ProductResponse {
+  id: string;
+  // ... existing code ...
+}
+
 const categories = ['Электроника', 'Одежда', 'Книги', 'Спорт', 'Другое'];
 const conditions = ['Новое', 'Как новое', 'Б/у'];
 const MAX_IMAGES = 5;
@@ -99,10 +104,11 @@ export default function CreateProductPage() {
       });
 
       console.log('Sending request to /products');
-      const response = await apiClient.post('/products', formDataToSend);
+      const response = await apiClient.post<ProductResponse>('/products', formDataToSend);
       console.log('Response:', response);
       
-      router.push('/profile');
+      // Перенаправляем на страницу созданного товара
+      router.push(`/product/${response.id}`);
     } catch (err) {
       console.error('Error details:', err);
       const errorMessage = err instanceof Error ? err.message : 'Ошибка при создании товара';
@@ -117,6 +123,7 @@ export default function CreateProductPage() {
     return () => {
       previewUrls.forEach(url => URL.revokeObjectURL(url));
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -200,72 +207,75 @@ export default function CreateProductPage() {
 
           <div>
             <label className="block text-sm font-medium text-black-700 mb-1">
-              Изображения ({imageFiles.length}/{MAX_IMAGES})
+              Фотографии
             </label>
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handleImageChange}
-              accept="image/*"
-              multiple
-              className="hidden"
-            />
-            <div className="space-y-4">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => fileInputRef.current?.click()}
-                className="w-full"
-                disabled={imageFiles.length >= MAX_IMAGES}
-              >
-                {imageFiles.length >= MAX_IMAGES 
-                  ? 'Достигнут лимит изображений' 
-                  : 'Добавить изображения'}
-              </Button>
-
-              {previewUrls.length > 0 && (
-                <div className="mt-4 grid grid-cols-3 gap-4">
-                  {previewUrls.map((url, index) => (
-                    <div key={url} className="relative aspect-square group">
-                      <Image
-                        src={url}
-                        alt={`Превью ${index + 1}`}
-                        fill
-                        className="object-cover rounded-lg"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => removeImage(index)}
-                        className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </button>
-                    </div>
-                  ))}
+            <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+              <div className="space-y-1 text-center">
+                <div className="flex text-sm text-gray-600">
+                  <label
+                    htmlFor="file-upload"
+                    className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                  >
+                    <span>Загрузить файлы</span>
+                    <input
+                      id="file-upload"
+                      name="file-upload"
+                      type="file"
+                      className="sr-only"
+                      multiple
+                      accept="image/*"
+                      onChange={handleImageChange}
+                      ref={fileInputRef}
+                    />
+                  </label>
+                  <p className="pl-1">или перетащите</p>
                 </div>
-              )}
+                <p className="text-xs text-gray-500">
+                  PNG, JPG, GIF до {MAX_FILE_SIZE / 1024 / 1024}MB
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="flex space-x-4">
-            <Button type="submit" disabled={loading}>
-              {loading ? 'Создание...' : 'Создать товар'}
-            </Button>
-            <Button type="button" variant="secondary" onClick={() => router.back()}>
-              Отмена
-            </Button>
-          </div>
+          {previewUrls.length > 0 && (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              {previewUrls.map((url, index) => (
+                <div key={url} className="relative aspect-square">
+                  <Image
+                    src={url}
+                    alt={`Preview ${index + 1}`}
+                    fill
+                    className="object-cover rounded-lg"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => removeImage(index)}
+                    className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600"
+                  >
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <Button
+            type="submit"
+            disabled={loading}
+            className="w-full"
+          >
+            {loading ? 'Создание...' : 'Создать товар'}
+          </Button>
         </form>
       </div>
     </div>

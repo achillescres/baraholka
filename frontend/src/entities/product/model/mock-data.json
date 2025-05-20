@@ -7,8 +7,10 @@
       "price": "79999",
       "category": "Электроника",
       "condition": "Как новое",
-      "images": ["https://images.unsplash.com/photo-1632661674596-79b3d5d2b3c1?auto=format&fit=crop&w=800&q=80"],
-      "userId": "1",
+      "images": [
+        "https://images.unsplash.com/photo-1632661674596-79b3d5d2b3c1?auto=format&fit=crop&w=800&q=80"
+      ],
+      "userId": "cc56737d-72c7-4ddc-8108-adb6b4ac0545",
       "createdAt": "2024-03-15T10:00:00.000Z",
       "updatedAt": "2024-03-15T10:00:00.000Z"
     },
@@ -19,8 +21,10 @@
       "price": "65000",
       "category": "Электроника",
       "condition": "Новое",
-      "images": ["https://images.unsplash.com/photo-1517336714731-489689fd1ca8"],
-      "userId": "user2",
+      "images": [
+        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8"
+      ],
+      "userId": "d97aed2b-aad1-45fe-9b31-040855fec125",
       "createdAt": "2024-03-14T15:30:00Z",
       "updatedAt": "2024-03-14T15:30:00Z"
     },
@@ -31,8 +35,10 @@
       "price": "12000",
       "category": "Одежда",
       "condition": "Б/у",
-      "images": ["https://images.unsplash.com/photo-1542291026-7eec264c27ff"],
-      "userId": "user3",
+      "images": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+      ],
+      "userId": "e6010c20-7e22-4507-bc8d-e32f5533af45",
       "createdAt": "2024-03-13T09:15:00Z",
       "updatedAt": "2024-03-13T09:15:00Z"
     },
@@ -43,8 +49,10 @@
       "price": "45000",
       "category": "Электроника",
       "condition": "Как новое",
-      "images": ["https://images.unsplash.com/photo-1606813907291-d86efa9b94db"],
-      "userId": "user4",
+      "images": [
+        "https://images.unsplash.com/photo-1606813907291-d86efa9b94db"
+      ],
+      "userId": "cc56737d-72c7-4ddc-8108-adb6b4ac0545",
       "createdAt": "2024-03-12T18:45:00Z",
       "updatedAt": "2024-03-12T18:45:00Z"
     },
@@ -55,8 +63,10 @@
       "price": "1500",
       "category": "Книги",
       "condition": "Как новое",
-      "images": ["https://images.unsplash.com/photo-1544947950-fa07a98d237f"],
-      "userId": "user5",
+      "images": [
+        "https://images.unsplash.com/photo-1544947950-fa07a98d237f"
+      ],
+      "userId": "d97aed2b-aad1-45fe-9b31-040855fec125",
       "createdAt": "2024-03-11T12:20:00Z",
       "updatedAt": "2024-03-11T12:20:00Z"
     },
@@ -67,8 +77,10 @@
       "price": "35000",
       "category": "Спорт",
       "condition": "Б/у",
-      "images": ["https://images.unsplash.com/photo-1485965120184-e220f721d03e"],
-      "userId": "user6",
+      "images": [
+        "https://images.unsplash.com/photo-1485965120184-e220f721d03e"
+      ],
+      "userId": "e6010c20-7e22-4507-bc8d-e32f5533af45",
       "createdAt": "2024-03-10T14:10:00Z",
       "updatedAt": "2024-03-10T14:10:00Z"
     },
@@ -79,8 +91,10 @@
       "price": "45000",
       "category": "Электроника",
       "condition": "Как новое",
-      "images": ["https://images.unsplash.com/photo-1610945415295-d9bbf067e59c"],
-      "userId": "user7",
+      "images": [
+        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c"
+      ],
+      "userId": "cc56737d-72c7-4ddc-8108-adb6b4ac0545",
       "createdAt": "2024-03-09T11:20:00Z",
       "updatedAt": "2024-03-09T11:20:00Z"
     },
@@ -91,8 +105,10 @@
       "price": "8900",
       "category": "Одежда",
       "condition": "Новое",
-      "images": ["https://images.unsplash.com/photo-1560769629-975ec94e6a86"],
-      "userId": "user8",
+      "images": [
+        "https://images.unsplash.com/photo-1560769629-975ec94e6a86"
+      ],
+      "userId": "d97aed2b-aad1-45fe-9b31-040855fec125",
       "createdAt": "2024-03-08T16:45:00Z",
       "updatedAt": "2024-03-08T16:45:00Z"
     },
@@ -103,8 +119,10 @@
       "price": "2500",
       "category": "Мебель",
       "condition": "Б/у",
-      "images": ["https://images.unsplash.com/photo-1507473885765-e6ed057f782c"],
-      "userId": "user9",
+      "images": [
+        "https://images.unsplash.com/photo-1507473885765-e6ed057f782c"
+      ],
+      "userId": "e6010c20-7e22-4507-bc8d-e32f5533af45",
       "createdAt": "2024-03-07T13:30:00Z",
       "updatedAt": "2024-03-07T13:30:00Z"
     },
@@ -115,8 +133,10 @@
       "price": "28000",
       "category": "Другое",
       "condition": "Как новое",
-      "images": ["https://images.unsplash.com/photo-1510915361894-db8b60106cb1"],
-      "userId": "user10",
+      "images": [
+        "https://images.unsplash.com/photo-1510915361894-db8b60106cb1"
+      ],
+      "userId": "cc56737d-72c7-4ddc-8108-adb6b4ac0545",
       "createdAt": "2024-03-06T10:15:00Z",
       "updatedAt": "2024-03-06T10:15:00Z"
     },
@@ -127,8 +147,10 @@
       "price": "32000",
       "category": "Электроника",
       "condition": "Б/у",
-      "images": ["https://images.unsplash.com/photo-1527443224154-c4a3942d3acf"],
-      "userId": "user11",
+      "images": [
+        "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf"
+      ],
+      "userId": "d97aed2b-aad1-45fe-9b31-040855fec125",
       "createdAt": "2024-03-05T14:20:00Z",
       "updatedAt": "2024-03-05T14:20:00Z"
     },
@@ -139,8 +161,10 @@
       "price": "15000",
       "category": "Одежда",
       "condition": "Новое",
-      "images": ["https://images.unsplash.com/photo-1551028719-00167b16eac5"],
-      "userId": "user12",
+      "images": [
+        "https://images.unsplash.com/photo-1551028719-00167b16eac5"
+      ],
+      "userId": "e6010c20-7e22-4507-bc8d-e32f5533af45",
       "createdAt": "2024-03-04T09:45:00Z",
       "updatedAt": "2024-03-04T09:45:00Z"
     },
@@ -152,7 +176,7 @@
       "category": "Электроника",
       "condition": "Новое",
       "images": [
-        "/uploads/1747601174323-2025-05-07 09.59.23.jpg"
+        "http://localhost:3000/uploads/1747601174323-2025-05-07 09.59.23.jpg"
       ],
       "userId": "cc56737d-72c7-4ddc-8108-adb6b4ac0545",
       "createdAt": "2025-05-18T20:46:14.324Z",
@@ -166,11 +190,71 @@
       "category": "Электроника",
       "condition": "Новое",
       "images": [
-        "/uploads/1747601389235-2025-05-07 09.59.23.jpg"
+        "http://localhost:3000/uploads/1747601389235-2025-05-07 09.59.23.jpg"
       ],
       "userId": "cc56737d-72c7-4ddc-8108-adb6b4ac0545",
       "createdAt": "2025-05-18T20:49:49.237Z",
       "updatedAt": "2025-05-18T20:49:49.237Z"
+    },
+    {
+      "id": "ef14f21b-6b51-4784-8d71-2f981a70488a",
+      "title": "фывфывфывцвцвц",
+      "description": "вйцвйцвйц",
+      "price": "1231321",
+      "category": "Электроника",
+      "condition": "Новое",
+      "images": [
+        "/uploads/1747770669566-2025-05-07 09.59.19.jpg",
+        "/uploads/1747770669567-2025-05-07 09.59.23.jpg"
+      ],
+      "userId": "e6010c20-7e22-4507-bc8d-e32f5533af45",
+      "createdAt": "2025-05-20T19:51:09.568Z",
+      "updatedAt": "2025-05-20T19:51:09.568Z"
+    },
+    {
+      "id": "4faad7ee-c88f-4728-be3e-f409ed60e56f",
+      "title": "фывфыв",
+      "description": "ыфвыфвы",
+      "price": "123213",
+      "category": "Электроника",
+      "condition": "Новое",
+      "images": [
+        "/uploads/1747771091117-2025-05-07 09.59.19.jpg",
+        "/uploads/1747771091117-2025-05-07 09.59.23.jpg"
+      ],
+      "userId": "e6010c20-7e22-4507-bc8d-e32f5533af45",
+      "createdAt": "2025-05-20T19:58:11.118Z",
+      "updatedAt": "2025-05-20T19:58:11.118Z"
+    },
+    {
+      "id": "039480f0-ba07-48c9-b5cb-ef88021c04a0",
+      "title": "1231221312",
+      "description": "цвфвцйвйц",
+      "price": "1231321",
+      "category": "Электроника",
+      "condition": "Новое",
+      "images": [
+        "/uploads/1747771108940-2025-05-07 09.59.19.jpg",
+        "/uploads/1747771108940-2025-05-07 09.59.23.jpg"
+      ],
+      "userId": "e6010c20-7e22-4507-bc8d-e32f5533af45",
+      "createdAt": "2025-05-20T19:58:28.941Z",
+      "updatedAt": "2025-05-20T19:58:28.941Z"
+    },
+    {
+      "id": "c67c03bc-74b5-4eac-8fc5-189c2622e19e",
+      "title": "ппкпкпк",
+      "description": "акакак",
+      "price": "1212312",
+      "category": "Электроника",
+      "condition": "Новое",
+      "images": [
+        "/uploads/1747771148334-2025-05-07 09.59.19.jpg",
+        "/uploads/1747771148335-2025-05-07 09.59.23.jpg"
+      ],
+      "userId": "e6010c20-7e22-4507-bc8d-e32f5533af45",
+      "createdAt": "2025-05-20T19:59:08.335Z",
+      "updatedAt": "2025-05-20T19:59:08.335Z"
     }
   ]
 }

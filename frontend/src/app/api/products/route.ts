@@ -7,6 +7,7 @@ import path from 'path';
 import mockData from '@/entities/product/model/mock-data.json';
 
 const UPLOAD_DIR = path.join(process.cwd(), 'public', 'uploads');
+const MOCK_DATA_PATH = path.join(process.cwd(), 'src', 'entities', 'product', 'model', 'mock-data.json');
 
 export async function POST(request: NextRequest) {
   try {
@@ -69,7 +70,12 @@ export async function POST(request: NextRequest) {
       updatedAt: new Date().toISOString()
     };
 
+    // Добавляем новый товар в массив
     mockData.products.push(newProduct);
+
+    // Сохраняем изменения в файл
+    await writeFile(MOCK_DATA_PATH, JSON.stringify(mockData, null, 2));
+
     return NextResponse.json(newProduct);
   } catch (error) {
     console.error('Error creating product:', error);

@@ -75,13 +75,13 @@ export default function MainPage() {
     }).sort((a: Product, b: Product) => {
       // Сортировка
       switch (filters.sortBy) {
-        case 'price-asc':
+        case 'price_asc':
           return parseInt(a.price) - parseInt(b.price);
-        case 'price-desc':
+        case 'price_desc':
           return parseInt(b.price) - parseInt(a.price);
-        case 'date-desc':
+        case 'newest':
           return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-        case 'date-asc':
+        case 'oldest':
           return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
         default:
           return 0;
