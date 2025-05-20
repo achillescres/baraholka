@@ -17,13 +17,14 @@ class ApiClient {
     const response = await fetch(url, {
       ...init,
       headers: {
-        'Content-Type': 'application/json',
+        ...(init.body instanceof FormData ? {} : { 'Content-Type': 'application/json' }),
         ...init.headers,
       },
     });
 
     if (!response.ok) {
-      throw new Error(`API Error: ${response.statusText}`);
+      const errorData = await response.json();
+      throw new Error(errorData.message || errorData.error || response.statusText);
     }
 
     return response.json();
@@ -37,7 +38,7 @@ class ApiClient {
     return this.request<T>(endpoint, {
       ...options,
       method: 'POST',
-      body: JSON.stringify(data),
+      body: data instanceof FormData ? data : JSON.stringify(data),
     });
   }
 
@@ -45,7 +46,7 @@ class ApiClient {
     return this.request<T>(endpoint, {
       ...options,
       method: 'PUT',
-      body: JSON.stringify(data),
+      body: data instanceof FormData ? data : JSON.stringify(data),
     });
   }
 

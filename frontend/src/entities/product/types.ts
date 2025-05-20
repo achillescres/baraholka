@@ -11,9 +11,11 @@ export interface Product {
   updatedAt: string;
 }
 
-export interface ProductFilters {
-  category?: string;
-  minPrice?: number;
-  maxPrice?: number;
-  search?: string;
+export interface CreateProductData {
+  title: string;
+  description: string;
+  price: string;
+  category: string;
+  condition: string;
+  images: string[];
 } 

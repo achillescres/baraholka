@@ -1,0 +1,176 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "iPhone 13 Pro",
+      "description": "Отличное состояние, все работает",
+      "price": "79999",
+      "category": "Электроника",
+      "condition": "Как новое",
+      "images": ["https://images.unsplash.com/photo-1632661674596-79b3d5d2b3c1?auto=format&fit=crop&w=800&q=80"],
+      "userId": "1",
+      "createdAt": "2024-03-15T10:00:00.000Z",
+      "updatedAt": "2024-03-15T10:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "title": "MacBook Air M1",
+      "description": "2020 год, 8GB RAM, 256GB SSD",
+      "price": "65000",
+      "category": "Электроника",
+      "condition": "Новое",
+      "images": ["https://images.unsplash.com/photo-1517336714731-489689fd1ca8"],
+      "userId": "user2",
+      "createdAt": "2024-03-14T15:30:00Z",
+      "updatedAt": "2024-03-14T15:30:00Z"
+    },
+    {
+      "id": "3",
+      "title": "Nike Air Max",
+      "description": "Размер 42, новые, в коробке",
+      "price": "12000",
+      "category": "Одежда",
+      "condition": "Б/у",
+      "images": ["https://images.unsplash.com/photo-1542291026-7eec264c27ff"],
+      "userId": "user3",
+      "createdAt": "2024-03-13T09:15:00Z",
+      "updatedAt": "2024-03-13T09:15:00Z"
+    },
+    {
+      "id": "4",
+      "title": "Sony PlayStation 5",
+      "description": "Digital Edition, с 2 геймпадами",
+      "price": "45000",
+      "category": "Электроника",
+      "condition": "Как новое",
+      "images": ["https://images.unsplash.com/photo-1606813907291-d86efa9b94db"],
+      "userId": "user4",
+      "createdAt": "2024-03-12T18:45:00Z",
+      "updatedAt": "2024-03-12T18:45:00Z"
+    },
+    {
+      "id": "5",
+      "title": "Книга \"Война и мир\"",
+      "description": "Толстой Л.Н., твердый переплет, отличное состояние",
+      "price": "1500",
+      "category": "Книги",
+      "condition": "Как новое",
+      "images": ["https://images.unsplash.com/photo-1544947950-fa07a98d237f"],
+      "userId": "user5",
+      "createdAt": "2024-03-11T12:20:00Z",
+      "updatedAt": "2024-03-11T12:20:00Z"
+    },
+    {
+      "id": "6",
+      "title": "Велосипед Trek",
+      "description": "Горный велосипед, 21 скорость, 2022 год",
+      "price": "35000",
+      "category": "Спорт",
+      "condition": "Б/у",
+      "images": ["https://images.unsplash.com/photo-1485965120184-e220f721d03e"],
+      "userId": "user6",
+      "createdAt": "2024-03-10T14:10:00Z",
+      "updatedAt": "2024-03-10T14:10:00Z"
+    },
+    {
+      "id": "7",
+      "title": "Samsung Galaxy S21",
+      "description": "128GB, Phantom Gray, отличное состояние",
+      "price": "45000",
+      "category": "Электроника",
+      "condition": "Как новое",
+      "images": ["https://images.unsplash.com/photo-1610945415295-d9bbf067e59c"],
+      "userId": "user7",
+      "createdAt": "2024-03-09T11:20:00Z",
+      "updatedAt": "2024-03-09T11:20:00Z"
+    },
+    {
+      "id": "8",
+      "title": "Кроссовки Adidas",
+      "description": "Размер 43, новые, белые",
+      "price": "8900",
+      "category": "Одежда",
+      "condition": "Новое",
+      "images": ["https://images.unsplash.com/photo-1560769629-975ec94e6a86"],
+      "userId": "user8",
+      "createdAt": "2024-03-08T16:45:00Z",
+      "updatedAt": "2024-03-08T16:45:00Z"
+    },
+    {
+      "id": "9",
+      "title": "Настольная лампа",
+      "description": "LED, регулируемая яркость, белый",
+      "price": "2500",
+      "category": "Мебель",
+      "condition": "Б/у",
+      "images": ["https://images.unsplash.com/photo-1507473885765-e6ed057f782c"],
+      "userId": "user9",
+      "createdAt": "2024-03-07T13:30:00Z",
+      "updatedAt": "2024-03-07T13:30:00Z"
+    },
+    {
+      "id": "10",
+      "title": "Гитара Fender",
+      "description": "Акустическая, отличное состояние",
+      "price": "28000",
+      "category": "Другое",
+      "condition": "Как новое",
+      "images": ["https://images.unsplash.com/photo-1510915361894-db8b60106cb1"],
+      "userId": "user10",
+      "createdAt": "2024-03-06T10:15:00Z",
+      "updatedAt": "2024-03-06T10:15:00Z"
+    },
+    {
+      "id": "11",
+      "title": "Монитор Dell 27\"",
+      "description": "4K, 144Hz, отличное состояние",
+      "price": "32000",
+      "category": "Электроника",
+      "condition": "Б/у",
+      "images": ["https://images.unsplash.com/photo-1527443224154-c4a3942d3acf"],
+      "userId": "user11",
+      "createdAt": "2024-03-05T14:20:00Z",
+      "updatedAt": "2024-03-05T14:20:00Z"
+    },
+    {
+      "id": "12",
+      "title": "Куртка The North Face",
+      "description": "Размер M, новая, черная",
+      "price": "15000",
+      "category": "Одежда",
+      "condition": "Новое",
+      "images": ["https://images.unsplash.com/photo-1551028719-00167b16eac5"],
+      "userId": "user12",
+      "createdAt": "2024-03-04T09:45:00Z",
+      "updatedAt": "2024-03-04T09:45:00Z"
+    },
+    {
+      "id": "2ac132fd-859c-4ccc-ab58-fa604ebceaed",
+      "title": "asdsada",
+      "description": "saddsad",
+      "price": "123",
+      "category": "Электроника",
+      "condition": "Новое",
+      "images": [
+        "/uploads/1747601174323-2025-05-07 09.59.23.jpg"
+      ],
+      "userId": "cc56737d-72c7-4ddc-8108-adb6b4ac0545",
+      "createdAt": "2025-05-18T20:46:14.324Z",
+      "updatedAt": "2025-05-18T20:46:14.324Z"
+    },
+    {
+      "id": "b8ed0273-bd45-4b1a-98f4-045cf1989dc2",
+      "title": "ыфвфыв",
+      "description": "фывфыв",
+      "price": "21312",
+      "category": "Электроника",
+      "condition": "Новое",
+      "images": [
+        "/uploads/1747601389235-2025-05-07 09.59.23.jpg"
+      ],
+      "userId": "cc56737d-72c7-4ddc-8108-adb6b4ac0545",
+      "createdAt": "2025-05-18T20:49:49.237Z",
+      "updatedAt": "2025-05-18T20:49:49.237Z"
+    }
+  ]
+}
