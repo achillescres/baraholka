@@ -24,4 +24,12 @@
   :main ^:skip-aot backend.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all
-                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
+                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}
+             :test {:dependencies [[org.clojure/test.check "1.1.1"]
+                                 [criterium "0.4.6"]]
+                   :plugins [[lein-cloverage "1.2.4"]]}
+             :dev {:dependencies [[pjstadig/humane-test-output "0.11.0"]]
+                  :injections [(require 'pjstadig.humane-test-output)
+                              (pjstadig.humane-test-output/activate!)]}}
+  :aliases {"test" ["with-profile" "+test" "test"]
+            "build" ["with-profile" "+uberjar" "uberjar"]})
