@@ -25,7 +25,7 @@
 }
 ```
 
-### POST /api/auth/register
+### POST /api/auth/register 
 Регистрация нового пользователя.
 
 **Тело запроса:**

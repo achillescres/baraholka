@@ -26,6 +26,24 @@
       "id": "e6010c20-7e22-4507-bc8d-e32f5533af45",
       "createdAt": "2025-05-20T18:50:00.822Z",
       "updatedAt": "2025-05-20T18:50:00.822Z"
+    },
+    {
+      "email": "nikglukhav@gmail.com",
+      "password": "qwerty123",
+      "username": "qwerty123",
+      "avatar": "https://i.pravatar.cc/150?u=nikglukhav@gmail.com",
+      "id": "196b370f-d2c3-4c61-ac8d-43183759b724",
+      "createdAt": "2025-06-04T15:51:36.284Z",
+      "updatedAt": "2025-06-04T15:51:36.284Z"
+    },
+    {
+      "email": "asdasd@gmail.com",
+      "password": "qwerty123",
+      "username": "asdasd@gmail.com",
+      "avatar": "https://i.pravatar.cc/150?u=asdasd@gmail.com",
+      "id": "3f247e0a-3bdf-45f7-acaf-5342b9e1f025",
+      "createdAt": "2025-06-04T16:21:36.207Z",
+      "updatedAt": "2025-06-04T16:21:36.207Z"
     }
   ]
 }

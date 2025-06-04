@@ -1,3 +1,5 @@
+import type { CreateProductData } from '@/entities/product/types';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api';
 
 interface RequestOptions extends RequestInit {
@@ -55,4 +57,9 @@ class ApiClient {
   }
 }
 
-export const apiClient = new ApiClient(); 
+export const apiClient = new ApiClient();
+
+export const getProducts = (filters: Record<string, string>) => apiClient.get('/products', { params: filters });
+export const getProductById = (id: string) => apiClient.get(`/products/${id}`);
+export const createProduct = (formData: FormData) => apiClient.post('/products', formData);
+export const deleteProduct = (id: string) => apiClient.delete(`/products/${id}`); 
