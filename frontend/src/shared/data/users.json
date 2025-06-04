@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "email": "m2210359@edu.misis.ru",
+      "password": "iheheg32",
+      "username": "VGLUKHOV",
+      "avatar": "https://i.pravatar.cc/150?u=m2210359@edu.misis.ru",
+      "id": "cc56737d-72c7-4ddc-8108-adb6b4ac0545",
+      "createdAt": "2025-05-18T20:06:05.262Z",
+      "updatedAt": "2025-05-18T20:06:05.262Z"
+    },
+    {
+      "email": "bomjomi322@gmail.com",
+      "password": "iheheg32",
+      "username": "ya lyublyu ebashit gashih",
+      "avatar": "https://i.pravatar.cc/150?u=bomjomi322@gmail.com",
+      "id": "d97aed2b-aad1-45fe-9b31-040855fec125",
+      "createdAt": "2025-05-18T20:06:18.683Z",
+      "updatedAt": "2025-05-18T20:08:25.422Z"
+    },
+    {
+      "email": "bomjomich322@gmail.com",
+      "password": "P@ssword123",
+      "username": "VGLUKHOV",
+      "avatar": "https://i.pravatar.cc/150?u=bomjomich322@gmail.com",
+      "id": "e6010c20-7e22-4507-bc8d-e32f5533af45",
+      "createdAt": "2025-05-20T18:50:00.822Z",
+      "updatedAt": "2025-05-20T18:50:00.822Z"
+    },
+    {
+      "email": "nikglukhav@gmail.com",
+      "password": "qwerty123",
+      "username": "qwerty123",
+      "avatar": "https://i.pravatar.cc/150?u=nikglukhav@gmail.com",
+      "id": "196b370f-d2c3-4c61-ac8d-43183759b724",
+      "createdAt": "2025-06-04T15:51:36.284Z",
+      "updatedAt": "2025-06-04T15:51:36.284Z"
+    },
+    {
+      "email": "asdasd@gmail.com",
+      "password": "qwerty123",
+      "username": "asdasd@gmail.com",
+      "avatar": "https://i.pravatar.cc/150?u=asdasd@gmail.com",
+      "id": "3f247e0a-3bdf-45f7-acaf-5342b9e1f025",
+      "createdAt": "2025-06-04T16:21:36.207Z",
+      "updatedAt": "2025-06-04T16:21:36.207Z"
+    }
+  ]
+}

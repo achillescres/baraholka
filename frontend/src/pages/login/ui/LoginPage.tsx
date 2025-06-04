@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Input } from '@/shared/ui/Input/Input';
 import { Button } from '@/shared/ui/Button/Button';
 import { apiClient } from '@/shared/api/client';
-import type { UserCredentials } from '@/entities/user/model/types';
+import type { UserCredentials, User } from '@/entities/user/model/types';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -14,17 +14,22 @@ export default function LoginPage() {
     password: '',
   });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
 
     try {
-      await apiClient.post('/auth/login', formData);
+      const response = await apiClient.post<{ message: string; user: User }>('/auth/login', formData);
+      console.log('Успешный вход:', response);
       router.push('/');
-    } catch (err) {
-      console.error('Ошибка при входе:', err);
-      setError('Неверный email или пароль');
+    } catch (err: Error | unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Ошибка при входе';
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -59,6 +64,7 @@ export default function LoginPage() {
               placeholder="Email"
               value={formData.email}
               onChange={handleChange}
+              disabled={loading}
             />
             <Input
               label="Пароль"
@@ -68,11 +74,12 @@ export default function LoginPage() {
               placeholder="Пароль"
               value={formData.password}
               onChange={handleChange}
+              disabled={loading}
             />
           </div>
 
-          <Button type="submit" fullWidth>
-            Войти
+          <Button type="submit" fullWidth disabled={loading}>
+            {loading ? 'Вход...' : 'Войти'}
           </Button>
         </form>
       </div>

@@ -1,98 +1,170 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
-import { apiClient } from '@/shared/api/client';
-import type { Product, ProductFilters } from '@/entities/product/model/types';
-import { Input } from '@/shared/ui/Input/Input';
+import { useState, useMemo, useEffect } from 'react';
+import { ProductCard } from '@/widgets/product-card/ui/ProductCard';
+import { FilterPanel, type FilterState } from '@/features/filter';
 import { Button } from '@/shared/ui/Button/Button';
+import type { Product } from '@/entities/product/types';
+import { apiClient } from '@/shared/api/client';
+
+const ITEMS_PER_PAGE = 6;
 
 export default function MainPage() {
   const [products, setProducts] = useState<Product[]>([]);
-  const [filters, setFilters] = useState<ProductFilters>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const fetchProducts = useCallback(async () => {
-    try {
-      setLoading(true);
-      const stringParams = Object.entries(filters).reduce((acc, [key, value]) => ({
-        ...acc,
-        [key]: value?.toString()
-      }), {});
-      const data = await apiClient.get<Product[]>('/products', { params: stringParams });
-      setProducts(data);
-    } catch (err) {
-      console.error('Ошибка при загрузке товаров:', err);
-      setError('Не удалось загрузить товары');
-    } finally {
-      setLoading(false);
-    }
-  }, [filters]);
+  const [filters, setFilters] = useState<FilterState>({
+    search: '',
+    minPrice: '',
+    maxPrice: '',
+    category: 'Все',
+    condition: 'Все',
+    sortBy: 'newest'
+  });
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        const response = await apiClient.get<Product[]>('/products');
+        setProducts(response);
+      } catch (err) {
+        console.error('Ошибка при загрузке товаров:', err);
+        setError('Не удалось загрузить товары');
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFilters(prev => ({
-      ...prev,
-      search: e.target.value
-    }));
+    fetchProducts();
+  }, []);
+
+  const filteredProducts = useMemo(() => {
+    return products.filter((product: Product) => {
+      // Поиск по названию
+      if (filters.search && !product.title.toLowerCase().includes(filters.search.toLowerCase())) {
+        return false;
+      }
+
+      // Фильтр по категории
+      if (filters.category && filters.category !== 'Все' && product.category !== filters.category) {
+        return false;
+      }
+
+      // Фильтр по состоянию
+      if (filters.condition && filters.condition !== 'Все' && product.condition !== filters.condition) {
+        return false;
+      }
+
+      // Фильтр по цене
+      const price = parseInt(product.price);
+      const minPrice = filters.minPrice ? parseInt(filters.minPrice) : 0;
+      const maxPrice = filters.maxPrice ? parseInt(filters.maxPrice) : Infinity;
+      
+      if (price < minPrice) {
+        return false;
+      }
+      if (price > maxPrice) {
+        return false;
+      }
+
+      return true;
+    }).sort((a: Product, b: Product) => {
+      // Сортировка
+      switch (filters.sortBy) {
+        case 'price_asc':
+          return parseInt(a.price) - parseInt(b.price);
+        case 'price_desc':
+          return parseInt(b.price) - parseInt(a.price);
+        case 'newest':
+          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+        case 'oldest':
+          return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+        default:
+          return 0;
+      }
+    });
+  }, [filters, products]);
+
+  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+  const paginatedProducts = filteredProducts.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-8 text-center">
+        Загрузка товаров...
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container mx-auto px-4 py-8 text-center text-red-500">
+        {error}
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-4">Товары</h1>
-        <div className="flex gap-4">
-          <Input
-            placeholder="Поиск товаров..."
-            onChange={handleSearch}
-            className="max-w-md"
-          />
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="md:col-span-1">
+          <FilterPanel onFilterChange={setFilters} />
+        </div>
+        <div className="md:col-span-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {paginatedProducts.map((product: Product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+          {filteredProducts.length === 0 && (
+            <div className="text-center py-8 text-gray-500">
+              Товары не найдены
+            </div>
+          )}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center space-x-2 mt-8">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+              >
+                Назад
+              </Button>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <Button
+                  key={page}
+                  variant={currentPage === page ? 'primary' : 'outline'}
+                  size="sm"
+                  onClick={() => handlePageChange(page)}
+                >
+                  {page}
+                </Button>
+              ))}
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+              >
+                Вперед
+              </Button>
+            </div>
+          )}
         </div>
       </div>
-
-      {error && (
-        <div className="text-red-500 text-center mb-4">
-          {error}
-        </div>
-      )}
-
-      {loading ? (
-        <div className="text-center">Загрузка...</div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {products.map(product => (
-            <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-              {product.images[0] && (
-                <div className="relative w-full h-48">
-                  <Image
-                    src={product.images[0]}
-                    alt={product.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              )}
-              <div className="p-4">
-                <h3 className="text-lg font-semibold mb-2">{product.title}</h3>
-                <p className="text-gray-600 text-sm mb-2">{product.description}</p>
-                <p className="text-xl font-bold text-indigo-600">{product.price} ₽</p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="mt-4 w-full"
-                  onClick={() => {/* TODO: Добавить функционал покупки */}}
-                >
-                  Купить
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
 } 

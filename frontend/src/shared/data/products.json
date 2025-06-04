@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "iPhone 13 Pro",
+      "description": "Отличное состояние, без царапин. Комплект: телефон, зарядка, чехол",
+      "price": 75000,
+      "category": "Электроника",
+      "condition": "Б/у",
+      "images": [
+        "/images/products/iphone-1.jpg",
+        "/images/products/iphone-2.jpg"
+      ],
+      "userId": "cc56737d-72c7-4ddc-8108-adb6b4ac0545",
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "title": "Nike Air Max",
+      "description": "Кроссовки Nike Air Max, размер 42, носились 2 раза",
+      "price": 12000,
+      "category": "Одежда",
+      "condition": "Как новое",
+      "images": [
+        "/images/products/nike-1.jpg",
+        "/images/products/nike-2.jpg"
+      ],
+      "userId": "d97aed2b-aad1-45fe-9b31-040855fec125",
+      "createdAt": "2024-01-02T00:00:00.000Z",
+      "updatedAt": "2024-01-02T00:00:00.000Z"
+    }
+  ]
+} 
